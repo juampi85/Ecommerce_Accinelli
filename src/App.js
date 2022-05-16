@@ -1,11 +1,15 @@
-import './App.css';
+import React from 'react';
+import NavBar from './components/NavBar/NavBar';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Ecommerce de ACCINELLI Juan Pablo</h1>
-    </div>
+    <>
+      <NavBar/>;
+    </>
   );
 }
+
+
+
 
 export default App;
