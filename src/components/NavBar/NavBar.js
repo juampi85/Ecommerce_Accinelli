@@ -1,7 +1,8 @@
 import React from 'react';
 import './NavBar.css';
-import { IconLogoBrand, Menu, MenuItem, MenuItemButton, NavBarContainer, NavBarWrapper } from './NavBar.elements';
+import { CartWidget, IconLogoBrand, Menu, MenuItem, MenuItemButton, MenuItemButtonOption, MenuItemButtonSelect, NavBarContainer, NavBarWrapper } from './NavBar.elements';
 import { MdFlutterDash } from "react-icons/md";
+import { TiShoppingCart } from "react-icons/ti";
 
 const NavBar = () => {
   return (
@@ -10,14 +11,22 @@ const NavBar = () => {
             <NavBarWrapper>
                 <IconLogoBrand>
                     <MdFlutterDash size={"4em"}/>
-                    Accinelli's Misteryous Store
+                    Empanadas Misioneras
                 </IconLogoBrand>
                 <Menu>
                     <MenuItem>
                         <MenuItemButton> HOME </MenuItemButton>
                     </MenuItem>
                     <MenuItem>
-                        <MenuItemButton> PRODUCTOS </MenuItemButton>
+                        <MenuItemButton> 
+                          <MenuItemButtonSelect>
+                            <MenuItemButtonOption selected disabled>EMPANADAS</MenuItemButtonOption>
+                            <MenuItemButtonOption>Tradicionales</MenuItemButtonOption>
+                            <MenuItemButtonOption>Especiales</MenuItemButtonOption>
+                            <MenuItemButtonOption>Súper Especiales</MenuItemButtonOption>
+                            <MenuItemButtonOption>Árabes</MenuItemButtonOption>
+                          </MenuItemButtonSelect>
+                      </MenuItemButton>
                     </MenuItem>
                     <MenuItem>
                         <MenuItemButton> PREGUNTAS FRECUENTES </MenuItemButton>
@@ -26,6 +35,9 @@ const NavBar = () => {
                         <MenuItemButton> CONTACTO </MenuItemButton>
                     </MenuItem>
                 </Menu>
+                <CartWidget>
+                    <TiShoppingCart size={"4em"}/>
+                </CartWidget>
             </NavBarWrapper>
         </NavBarContainer>
     </>

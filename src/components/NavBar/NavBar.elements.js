@@ -20,6 +20,7 @@ export const NavBarWrapper = styled.div `
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  color: #ebc88b;
 `;
 
 // Div que contiene al LOGO y al Brand
@@ -29,7 +30,7 @@ flex-wrap: wrap;
 justify-content: flex-start;
 align-items: center;
 font-size: 1.2rem;
-color: #ebc88b;
+/* color: #ebc88b; */
 `;
 
 // Menú
@@ -63,3 +64,26 @@ export const MenuItemButton = styled.button `
    border-radius: 20%;
    border: none;
 `;
+
+export const MenuItemButtonSelect = styled.select `
+  background-color:#49426c;
+  color: #ebc88b;
+  border: none;
+`
+
+
+export const MenuItemButtonOption = styled.option `
+  border: none;
+  background-color:#49426c;
+  color: #ebc88b;
+`
+
+export const CartWidget = styled.button `
+  color: #ebc88b;
+  background-color: #49426c;
+  border: none;
+  &:hover {
+    transform: scale(1.3);
+    transition: 0.4s ease-in;
+  }
+`
