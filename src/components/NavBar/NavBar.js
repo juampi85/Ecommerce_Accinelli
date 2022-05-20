@@ -1,8 +1,8 @@
 import React from 'react';
 import './NavBar.css';
-import { CartWidget, IconLogoBrand, Menu, MenuItem, MenuItemButton, MenuItemButtonOption, MenuItemButtonSelect, NavBarContainer, NavBarWrapper } from './NavBar.elements';
+import { IconLogoBrand, Menu, MenuItem, MenuItemButton, MenuItemButtonOption, MenuItemButtonSelect, NavBarContainer, NavBarWrapper } from './NavBar.elements';
 import { MdFlutterDash } from "react-icons/md";
-import { TiShoppingCart } from "react-icons/ti";
+import CartWidget from '../CartWidget/CartWidget';
 
 const NavBar = () => {
   return (
@@ -35,9 +35,7 @@ const NavBar = () => {
                         <MenuItemButton> CONTACTO </MenuItemButton>
                     </MenuItem>
                 </Menu>
-                <CartWidget>
-                    <TiShoppingCart size={"4em"}/>
-                </CartWidget>
+                <CartWidget />
             </NavBarWrapper>
         </NavBarContainer>
     </>

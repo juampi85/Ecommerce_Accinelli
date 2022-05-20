@@ -14,4 +14,5 @@ export const ItemListContainterTitulo = styled.div `
 export const ContenidoGreeting = styled.p `
   font-weight: bold;
   font-size: 20px;
+  font-style: italic;
 `
