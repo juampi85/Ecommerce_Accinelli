@@ -6,8 +6,8 @@ function App() {
   return (
     <>
       <NavBar/>
-      <ItemListContainer
-        greeting="mejor lugar de empanadas" />
+      <ItemListContainer 
+        greeting="mejor lugar de empanadas"/>
     </>
   );
 }
