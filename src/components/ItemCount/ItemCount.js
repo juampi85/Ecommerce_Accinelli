@@ -5,7 +5,7 @@ const ItemCount = ({stock, onAdd}) => {
 
     return (
         <>
-            <p className='text-lg text-cyan-900 font-bold'>Cuántas empanadas va llevar? Tenemos {stock} disponibles</p>
+            <p className='text-md text-cyan-900 font-bold text-center'>Cuántas empanadas te vas a llevar? Tenemos {stock} disponibles</p>
           <div className='flex justify-center font-bold'>
             <button onClick={()=>{setCount(count - 1)}} disabled={count === 1} className="p-1 text-2xl "> - </button>
             <p className="p-1 text-2xl">{count}</p>

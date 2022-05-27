@@ -1,15 +1,15 @@
 import React from 'react'
 import Item from '../Item/Item'
 
-const ItemList = ({productosMock}) => {
+const ItemList = ({productos}) => {
 
   return (
     <>
-      <div className="wrapper w-11/12 bg-gray-400 antialiased text-gray-900 mt-8 grid grid-cols-4 gap-2 px-2">
-        { productosMock.map((producto) => {
+      <div>
+        { productos.map(({titulo, precio, id, imagen, categoria, stock}) => {
           return (
-            <div>
-              <Item producto={producto} />
+            <div key={id}>
+              <Item titulo={titulo} precio={precio} imagen={imagen} categoria={categoria} stock={stock}/>
             </div>
           )
         })}
