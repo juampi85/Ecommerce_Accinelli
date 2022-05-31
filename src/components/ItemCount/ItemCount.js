@@ -5,14 +5,14 @@ const ItemCount = ({stock, onAdd}) => {
 
     return (
         <>
-            <p className='text-md text-cyan-900 font-bold text-center'>Cuántas empanadas te vas a llevar? Tenemos {stock} disponibles</p>
+            {/* <p className='text-md text-cyan-900 font-bold text-center'>Hay {stock} disponibles</p> */}
           <div className='flex justify-center font-bold'>
             <button onClick={()=>{setCount(count - 1)}} disabled={count === 1} className="p-1 text-2xl "> - </button>
             <p className="p-1 text-2xl">{count}</p>
             <button onClick={()=>{setCount(count + 1)}} disabled={count === stock} className="p-1 text-2xl"> + </button>
           </div>
           <div className='flex justify-center'>
-            <button onClick={() => onAdd( count )} className='font-bold text-md border-2 border-slate-600 rounded-lg bg-slate-300 hover:scale-110 hover:bg-slate-400 hover:text-fuchsia-800'>COMPRAR</button>
+            <button onClick={() => onAdd( count )} className='font-bold text-md border-2 border-slate-600 rounded-lg bg-red-200 hover:scale-110 hover:bg-sky-700 hover:text-amber-400 hover:px-1'>COMPRAR</button>
           </div>
         </>
     )
