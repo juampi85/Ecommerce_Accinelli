@@ -1,6 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
 import Item from '../Item/Item'
+import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
 
 const ItemList = () => {
   const [productos, setProductos] = useState([])
@@ -58,7 +59,8 @@ const ItemList = () => {
           
           return (
             <div key={id}>
-              <Item titulo={titulo} precio={precio} imagen={imagen} categoria={categoria} stock={stock}/>
+              <Item titulo={titulo} precio={precio} imagen={imagen} categoria={categoria} stock={stock} id={id}/>
+              <ItemDetailContainer productosMock/>
             </div>
           )
         })}
