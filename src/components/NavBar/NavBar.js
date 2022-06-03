@@ -10,7 +10,7 @@ const NavBar = () => {
     <>
       <NavBarContainer>
           <NavBarWrapper>
-              <IconLogoBrand>
+              <IconLogoBrand >
                   <MdFlutterDash size={"4em"}/>
                   Empanadas Misioneras
               </IconLogoBrand>
@@ -21,14 +21,23 @@ const NavBar = () => {
                     </MenuItemButton>
                   </MenuItem>
                   <MenuItem>
-                      <MenuItemButton> 
-                        <MenuItemButtonSelect>
-                          <MenuItemButtonOption selected disabled>EMPANADAS</MenuItemButtonOption>
-                          <MenuItemButtonOption>Tradicionales</MenuItemButtonOption>
-                          <MenuItemButtonOption>Especiales</MenuItemButtonOption>
-                          <MenuItemButtonOption>Súper Especiales</MenuItemButtonOption>
-                          <MenuItemButtonOption>Árabes</MenuItemButtonOption>
-                        </MenuItemButtonSelect>
+                    <MenuItemButton>
+                      <Link to="/productos/tradicionales" className='text-white italic'>TrAdIcIoNaLeS</Link>
+                    </MenuItemButton>
+                  </MenuItem>
+                  <MenuItem>
+                    <MenuItemButton>
+                      <button><Link to="/productos/especiales" className='text-white italic'>EsPeCiAlEs</Link></button>
+                    </MenuItemButton>
+                  </MenuItem>
+                  <MenuItem>
+                    <MenuItemButton>
+                      <Link to="/productos/super-especiales" className='text-white italic'>SúPeR EsPeCiAlEs</Link>
+                    </MenuItemButton>
+                  </MenuItem>
+                  <MenuItem>
+                    <MenuItemButton>
+                      <Link to="/productos/arabes" className='text-white italic'>ÁrAbEs</Link>
                     </MenuItemButton>
                   </MenuItem>
                   <MenuItem>

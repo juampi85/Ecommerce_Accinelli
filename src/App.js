@@ -8,6 +8,8 @@ import Contacto from './pages/Contacto';
 import Faq from './pages/Faq';
 import NotFound from './pages/NotFound';
 import Detalle from './pages/Detalle';
+import ListadoProductos from './pages/ListadoProductos';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 
 function App() {
   return (
@@ -16,10 +18,10 @@ function App() {
         <NavBar/>
         <Routes>
           <Route path='/' element={<Home/>}/>
-          <Route path='/productos' element={<ItemListContainer/>}/>
+          <Route path='/productos/:category' element={<ItemListContainer/>}/>
           <Route path='/faq' element={<Faq/>}/>
           <Route path='/contacto' element={<Contacto/>}/>
-          <Route path='/detalle/:id' element={<Detalle />}/>
+          <Route path='/detalle/:id' element={<ItemDetailContainer />}/>
           <Route path='*' element={<NotFound/>}/>
         </Routes>
       </BrowserRouter>
