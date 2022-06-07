@@ -1,16 +1,14 @@
 import React from 'react'
 import Item from '../Item/Item'
 
-const ItemList = ({productos}) => {
+const ItemList = ({products}) => {
 
-  return (
+  return(
     <>
       <div className='grid grid-cols-4 border-8 border-red-700 gap-1 rounded-xl'>
-        { productos.map(({titulo, precio, id, imagen, categoria, stock, descripcion}) => {
-          
-          return (
-            <div key={id}>
-              <Item titulo={titulo} precio={precio} imagen={imagen} categoria={categoria} stock={stock} id={id} descripcion={descripcion}/>
+        { products.map(({title, price, id, image, categories, stock, description}) => {          
+          return (            <div key={id}>
+              <Item title={title} price={price} image={image} categories={categories} stock={stock} id={id} description={description}/>
             </div>
           )
         })}
