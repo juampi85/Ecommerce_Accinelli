@@ -1,13 +1,11 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
 import Loader from '../components/Loader.js/Loader';
-import ContactForm from '../components/ContactForm/ContactForm';
 
-
-const Contacto = () => {
+const Cart = () => {
   const [loading, setLoading] = useState()
   
-  const contact = () => {
+  const cart = () => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve()
@@ -17,24 +15,22 @@ const Contacto = () => {
 
   useEffect(() => {
     setLoading(true) //--> acá LLAMARÍAMOS al loader para el efecto visual de "cargando"
-    contact()
+    cart()
     .then((res) => {})    
     .finally(() => { // se ejecuta SIEMPRE (independientemente de que se carguen los productos o fallen)
       setLoading(false)
     })
   }, [])
-
   return (
     <>
       {loading ? (
         <Loader />
         ) : (
-          <ContactForm />
-          // <div className='text-4xl italic mt-5 text-blue-600 font-bold text-center'>PÁGINA DE CONTACTO</div>
+          <div className='text-4xl italic mt-5 text-blue-600 font-bold text-center'>WELCOME TO THE CARRITO....</div>
         )
       }
     </>
   )
 }
 
-export default Contacto;
+export default Cart;
