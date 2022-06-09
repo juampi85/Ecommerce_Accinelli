@@ -10,7 +10,7 @@ const ItemCount = ({stock, onAdd, setShowButton}) => {
           <p className="p-1 text-2xl">{count}</p>
           <button onClick={()=>{setCount(count + 1)}} disabled={count === stock} className="p-1 text-2xl"> + </button>
         </div>
-          <button onClick={() => setShowButton(true)} className='font-bold text-md border-2 border-slate-600 rounded-lg 
+          <button onClick={() => setShowButton(true)} onMouseDown={() => onAdd(count)} className='font-bold text-md border-2 border-slate-600 rounded-lg 
           bg-red-200 w-full hover:text-lg'>Agregar al Carrito</button>
       </>
     )

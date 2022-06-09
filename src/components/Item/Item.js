@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import ItemCount from '../ItemCount/ItemCount'
 import { useState } from "react";
 
-
 const Item = ({title, price, categories, image, stock, id}) => {
   const [showButton, setShowButton] = useState(false)
 

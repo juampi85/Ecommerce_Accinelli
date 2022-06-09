@@ -12,19 +12,20 @@ import Cart from './pages/Cart';
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <NavBar/>
-        <Routes>
-          <Route path='/' element={<Home/>}/>
-          <Route path='/products/' element={<ItemListContainer/>}/>
-          <Route path='/productos/:category' element={<ItemListContainer/>}/>
-          <Route path='/faq' element={<Faq/>}/>
-          <Route path='/contacto' element={<Contacto/>}/>
-          <Route path='/detalle/:id' element={<ItemDetailContainer />}/>
-          <Route path='/cart' element={<Cart />}/>
-          <Route path='*' element={<NotFound/>}/>
-        </Routes>
-      </BrowserRouter>
+      
+        <BrowserRouter>
+          <NavBar/>
+          <Routes>
+            <Route path='/' element={<Home/>}/>
+            <Route path='/products/' element={<ItemListContainer/>}/>
+            <Route path='/productos/:category' element={<ItemListContainer/>}/>
+            <Route path='/faq' element={<Faq/>}/>
+            <Route path='/contacto' element={<Contacto/>}/>
+            <Route path='/detalle/:id' element={<ItemDetailContainer />}/>
+            <Route path='/cart' element={<Cart />}/>
+            <Route path='*' element={<NotFound/>}/>
+          </Routes>
+        </BrowserRouter>
     </>
   );
 }

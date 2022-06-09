@@ -36,7 +36,8 @@ const ItemListContainer =() => {
         <Loader />
         ) : (
           <div>
-            <h1 className='text-4xl text-center font-extrabold my-2 italic bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-yellow-500'>NUESTRAS EMPANADAS</h1>
+            <h1 className='text-4xl text-center font-extrabold my-2 italic bg-clip-text text-transparent 
+            bg-gradient-to-r from-blue-600 to-yellow-500'>NUESTRAS EMPANADAS</h1>
             <ItemList products={products}/>
           </div>
         )
