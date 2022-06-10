@@ -2,12 +2,24 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import ItemCount from '../ItemCount/ItemCount'
 import { useState } from "react";
+import { useContext } from 'react';
+import CartContext from '../../context/CartContext';
 
 const Item = ({title, price, categories, image, stock, id}) => {
-  const [showButton, setShowButton] = useState(false)
-
+  const {addProductToCart} = useContext(CartContext);
+  const {clearCart} = useContext(CartContext);
+  const [showButton, setShowButton] = useState(false);
   const onAdd = (count) => {
     console.log(`Se agregaron ${count} empanadas de ${title}`);
+    addProductToCart({
+      image,
+      categories,
+      title,
+      price,
+      stock,
+      id,
+      count
+    });
   }
   
   return (      
@@ -29,7 +41,7 @@ const Item = ({title, price, categories, image, stock, id}) => {
                 <Link to={`/detalle/${id}`}>Ver detalle</Link>
               </button>
             </div>
-            {!showButton ?
+            {/* {!showButton ?
               <ItemCount 
                 onAdd={onAdd} 
                 stock={stock}
@@ -38,7 +50,7 @@ const Item = ({title, price, categories, image, stock, id}) => {
               : 
               <button className="border-2 border-black rounded-xl w-full mt-10 font-semibold text-white bg-slate-600 hover:text-lg">
                 <Link to="/cart">Confirmar compra</Link>
-              </button>}
+              </button>} */}
           </div>
       </div>  
     </>

@@ -8,11 +8,12 @@ import Faq from './pages/Faq';
 import NotFound from './pages/NotFound';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import Cart from './pages/Cart';
+import { CartProvider } from "./context/CartContext";
 
 function App() {
   return (
     <>
-      
+      <CartProvider>
         <BrowserRouter>
           <NavBar/>
           <Routes>
@@ -26,7 +27,8 @@ function App() {
             <Route path='*' element={<NotFound/>}/>
           </Routes>
         </BrowserRouter>
-    </>
+      </CartProvider>
+    </>  
   );
 }
 

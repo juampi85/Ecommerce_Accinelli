@@ -42,7 +42,7 @@ const NavBar = () => {
                   </MenuItem>
                   <MenuItem>
                       <MenuItemButton> 
-                        <Link to="/faq">PREGUNTAS FRECUENTES</Link>
+                        <Link to="/faq">FAQ</Link>
                       </MenuItemButton>
                   </MenuItem>
                   <MenuItem>
