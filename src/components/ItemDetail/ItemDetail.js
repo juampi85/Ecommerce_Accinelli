@@ -12,7 +12,6 @@ const ItemDetail = ({detail}) => {
   // ver si se puede hacer ESTO de crear OTRA función
   const [showButton, setShowButton] = useState(false);
   const onAdd = (count) => {
-    console.log(`Se agregaron ${count} empanadas de ${title}`);
     addProductToCart({
       image,
       categories,
