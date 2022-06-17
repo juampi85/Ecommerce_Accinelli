@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import ItemCount from "../ItemCount/ItemCount";
 import { useContext } from "react";
+
+import ItemCount from "../ItemCount/ItemCount";
 import CartContext from "../../context/CartContext";
 
 
@@ -40,7 +41,7 @@ const ItemDetail = ({detail}) => {
         <button className="border-2 border-black rounded-xl w-full mt-10 font-semibold text-white bg-slate-600 hover:text-lg">
           <Link to="/cart">Confirmar compra</Link>
         </button>}
-      </div>|
+      </div>
     </div>
   )
 }

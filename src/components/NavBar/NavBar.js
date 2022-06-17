@@ -1,9 +1,9 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 import './NavBar.css';
+
 import { IconLogoBrand, Menu, MenuItem, MenuItemButton, MenuItemButtonOption, MenuItemButtonSelect, NavBarContainer, NavBarWrapper } from './NavBar.elements';
 import { MdFlutterDash } from "react-icons/md";
 import CartWidget from '../CartWidget/CartWidget';
-import { Link } from 'react-router-dom';
 
 const NavBar = () => {
   return (

@@ -1,8 +1,8 @@
-import React from 'react';
-import ItemList from '../ItemList/ItemList';
 import { useEffect, useState } from 'react';
-import productsMock from '../../utils/productsMock';
 import { useParams } from "react-router-dom";
+
+import ItemList from '../ItemList/ItemList';
+import productsMock from '../../utils/productsMock';
 import Loader from '../Loader.js/Loader';
 
 const ItemListContainer =() => {

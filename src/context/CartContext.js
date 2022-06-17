@@ -4,33 +4,45 @@ const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
   const [cartListItems, setCartListItems] = useState([]);
-  const [totalPrice, setTotalPrice] = useState(0);
+
+  // const [totalPrice, setTotalPrice] = useState(0);
+
   const addProductToCart = (product) => {
-    let isInCart = cartListItems.find((cartItem) => cartItem.id === product.id);
-    if (!isInCart) {
-      console.log("se agrego el producto:", product);
-      setTotalPrice(totalPrice + product.price * product.quantity)
+
+    if (!isInCart(product.id)) {
       return setCartListItems((cartListItems) => [...cartListItems, product]);
     }
+
   };
 
-  const reduceCart = (product) => {
-    setCartListItems({
-      ...cartListItems,
-      cartListItems: cartListItems.filter((items) => items.id !== product.id),
-    });
+  const reduceCart = (id) => {
+    return setCartListItems(cartListItems.filter((items) => items.id !== id));
   };
 
   const clearCart = () => {
-    cartListItems.length = 0;
+    setCartListItems([]);
   };
 
-  const data = {
+  const totalPrice = () => {
+    return cartListItems.reduce((acum, product) => acum + product.price * product.quantity, 0)
+  }
+
+  const isInCart = (id) => {
+    cartListItems.find((cartItem) => cartItem.id === id);
+  }
+
+  const totalItemsWidget = () => {
+    return cartListItems.reduce((acum, product) => acum += product.quantity, 0)
+  }
+
+
+  const data = { // primero ubicamos las variables/estados y luego sí las funciones
     cartListItems,
-    addProductToCart,
     totalPrice,
+    addProductToCart,
     clearCart,
     reduceCart,
+    totalItemsWidget
   };
 
   return <CartContext.Provider value={data}>{children}</CartContext.Provider>;

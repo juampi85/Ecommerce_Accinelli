@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+
 import CartContext from "../context/CartContext";
 
 const Cart = () => {
-  const { cartListItems, totalPrice } = useContext(CartContext);
+  const { cartListItems, totalPrice, clearCart, reduceCart } = useContext(CartContext);
 
   return (
     <div>
@@ -47,8 +48,7 @@ const Cart = () => {
                 <p>{quantity}</p>
               </div>
               <div className="w-1/6 mx-auto text-center my-auto">
-                <button className="btn-delete">
-                  {/* <Delete /> */}
+                <button className="btn-delete" onClick={() => {reduceCart(id)}}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-6 w-6"
@@ -69,6 +69,9 @@ const Cart = () => {
           );
         })}
         <div className="flex border-2 border-yellow-600 justify-around">
+          <button className="border-2 border-black rounded-md my-2 w-1/5 p-0 justify-end font-bold bg-red-500 text-white text-xl" onClick={clearCart}>
+              Vaciar carrito
+          </button>
           <button className="border-2 border-black rounded-md my-2 w-1/5 p-0 justify-end font-bold bg-slate-500 text-white text-xl">
             <Link to="../products">
               Continuar comprando
@@ -76,12 +79,8 @@ const Cart = () => {
           </button>
           <div className="my-2">
             <div className="">
-              <p className="font-semibold">Subtotal</p>
-              <span>$ {totalPrice}</span>
-            </div>
-            <div className="">
-              <p className="font-semibold">Total</p>
-              <span>$ {totalPrice}</span>
+              <p className="font-semibold text-center">Total</p>
+              <p className="text-center">$ {totalPrice()}</p>
             </div>
             <button className="rounded-2xl font-semibold p-2 bg-yellow-400 text-blue-600 font-extrabold">Completar Compra</button>
           </div>
