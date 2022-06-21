@@ -2,8 +2,12 @@ import { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
 
 import ItemList from '../ItemList/ItemList';
-import productsMock from '../../utils/productsMock';
+// import productsMock from '../../utils/productsMock';
 import Loader from '../Loader.js/Loader';
+
+// Firestore
+import { collection, getDocs } from "firebase/firestore";
+import db from "../../utils/firebaseConfig";
 
 const ItemListContainer =() => {
 
@@ -11,17 +15,18 @@ const ItemListContainer =() => {
   const {category} = useParams()
   const [loading, setLoading] = useState()
 
-  const getProducts = () => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(productsMock)
-      }, 2000)
-    })
-  }
+  // const getProducts = () => {
+  //   return new Promise((resolve, reject) => {
+  //     setTimeout(() => {
+  //       resolve(productsMock)
+  //     }, 2000)
+  //   })
+  // }
 
   useEffect(() => {
     setLoading(true) //--> acá LLAMARÍAMOS al loader para el efecto visual de "cargando"
     getProducts()
+    
     .then((res) => {
       setProducts( category ? res.filter( product => product.categories === category ) : res) //category viene de useParams y categories viene del Mock
     })
@@ -30,6 +35,18 @@ const ItemListContainer =() => {
       setLoading(false)
     })
   }, [category]) // --> esto nos permite que se haga la llamada ÚNICAMENTE cuando se crea el componente (en el ciclo de MONTAJE)
+
+  const getProducts = async () => {
+    const productSnapshot = await getDocs(collection(db, "products"));
+    const productList = productSnapshot.docs.map((doc) => {
+      let product = doc.data();
+      product.id = doc.id;
+      return product;
+    });
+    return productList;
+  };
+
+
   return (
     <>
       {loading ? (
