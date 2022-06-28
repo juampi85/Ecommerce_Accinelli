@@ -1,14 +1,60 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 import CartContext from "../context/CartContext";
+import {addDoc, collection} from "firebase/firestore";
+import db from "../utils/firebaseConfig";
 
 const Cart = () => {
   const { cartListItems, totalPrice, clearCart, reduceCart } = useContext(CartContext);
 
+  const [showModal, setShowModal] = useState(false);
+  const [formValue, setFormValue] = useState({
+    name:"",
+    phone:"",
+    email:""
+  });
+  const [order, setOrder] = useState({
+    buyer:{},
+    items: cartListItems.map( item => {
+      return {
+        id: item.id,
+        title: item.title,
+        price: item.price
+      }
+    }),
+    total: totalPrice
+  });
+
+  const [success, setSuccess] = userState()
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setOrder({...order, buyer: formValue})
+    saveData({...order, buyer: formValue})
+  }
+
+  const handleChange = (e) => {
+    setFormValue({...formValue, [e.target.name] : e.target.value})  
+  }
+
+  const saveData = async (newOrder) => {
+    const orderFirebase = collection(db, "orders");
+    const orderDoc = await addDoc(orderFirebase, newOrder);
+    console.log("orden generada", orderDoc.id);
+    setSuccess(orderDoc.id);
+  }
+
+
+
+
   return (
     <div>
-      <h2 className="text-center my-4 font-bold text-5xl">Confirmar compra... </h2>
+      {console.log("order", order)}
+      <h2 className="text-transparent bg-clip-text w-4/5 text-5xl italic pt-2 pb-4 font-extrabold my-0 mx-auto text-center leading-normal bg-gradient-to-r from-indigo-500 via-orange-500 to-green-500">
+        Confirmar compra...
+      </h2>
       <div>
         <div className="flex justify-between">
           <h2 className="ml-3 font-bold">Producto</h2>
@@ -35,7 +81,7 @@ const Cart = () => {
           const { id, title, image, price, quantity } = item;
           return (
             <div className="flex my-2" key={id}>
-              <div className="w-1/12">
+              <div className="w-1/12 ml-1">
                 <img src={`./${image}`} alt="product in cart" />
               </div>
               <div className="w-2/6 mx-auto text-center my-auto">
@@ -82,7 +128,68 @@ const Cart = () => {
               <p className="font-semibold text-center">Total</p>
               <p className="text-center">$ {totalPrice()}</p>
             </div>
-            <button className="rounded-2xl font-semibold p-2 bg-yellow-400 text-blue-600 font-extrabold">Completar Compra</button>
+            {/* <button className="rounded-2xl p-2 bg-yellow-400 text-blue-600 font-extrabold" onClick={() => {console.log("Holandaaaaaa")}}>
+              Completar Compra
+            </button> */}
+
+            <button
+        className="bg-pink-500 text-white rounded-2xl active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+        type="button"
+        onClick={() => setShowModal(true)}
+      >
+        Completar Compra
+      </button>
+      {showModal ? (
+        <>
+          <div
+            className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+          >
+            <div className="relative w-auto my-6 mx-auto max-w-3xl">
+              {/*content*/}
+              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                {/*header*/}
+                <div className="flex items-start justify-between p-5 rounded-t">
+                </div>
+                {/*body*/}
+                <div className="relative p-6 flex-auto">
+                  {/* ACÁ va el FORM*/}
+                  {success ? (
+                    <div>
+                      La orden se generó con éxito!!
+                      Número de orden: {success}
+                    </div>
+                  ) : (
+                  <form onSubmit={handleSubmit}>
+                    <input required className="border-2 border-gray-500 pl-2 mr-2" placeholder="Juanito Belmondo" label="Nombre y Apellido" value={formValue.name} name="name" onChange={handleChange}/>
+                    <input required className="border-2 border-gray-500 pl-2 mr-2" placeholder="376-4999777" label="Teléfono" value={formValue.phone} name="phone" onChange={handleChange}/>
+                    <input required className="border-2 border-gray-500 pl-2 mr-2" placeholder="juanito@belmondo.com" label="Email" value={formValue.email} name="email" onChange={handleChange}/>
+                    <button className="text-lg font-bold italic hover:text-2xl" type="submit"> Enviar </button>
+                  </form>
+                  )}
+                </div>
+                {/*footer*/}
+                <div className="flex items-center justify-end p-6  rounded-b">
+                  <button
+                    className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    type="button"
+                    onClick={() => setShowModal(false)}
+                  >
+                    Cancelar Compra
+                  </button>
+                  <button
+                    className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    type="submit"
+                    onClick={() => setShowModal(false)}
+                  >
+                    CONFIRMAR
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+        </>
+        ) : null}
           </div>
         </div>
       </div>
