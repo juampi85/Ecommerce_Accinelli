@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import ItemDetail from "../ItemDetail/ItemDetail";
-// import productsMock from "../../utils/productsMock";
 import Loader from "../Loader.js/Loader";
 
 //Firebase
@@ -11,23 +10,13 @@ import db from "../../utils/firebaseConfig";
 
   const ItemDetailContainer = () => {
     const {id} = useParams()
-    const [detail, setDetail] = useState({}) // poniendo las llaves le decimos que "detalle" es un OBJETO
+    const [detail, setDetail] = useState({})
     const [loading, setLoading] = useState()
-    
-    // const showDetails = () => {
-    //   return new Promise((resolve, reject) => {
-    //     setTimeout(() => {
-    //       resolve(productsMock)
-    //     }, 2000)
-    //   })
-    // }
 
     useEffect(() => {
       setLoading(true)
-      // showDetails()
       getProduct() 
       .then((res) => {
-        // setDetail(res.find((product) => {return product.id === parseInt(id)}))
         setDetail(res)
       })
       .catch((err) => {})

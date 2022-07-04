@@ -29,10 +29,10 @@ import { useContext, useState } from "react";
         MenuListProps={{ "aria-labelledby": "basic-button" }}
       >
         <div>
-          {cartListItems.length === 0 && ( // el "&&" actúa como condicional
+          {cartListItems.length === 0 && (
             <>
               <p className="text-sm"> No hay productos en el carrito</p>
-              <Link className="text-sm underline" to="./products">
+              <Link className="text-sm underline" to="./">
                 Empezar a comprar
               </Link>
             </>

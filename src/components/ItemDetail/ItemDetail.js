@@ -6,11 +6,9 @@ import ItemCount from "../ItemCount/ItemCount";
 import CartContext from "../../context/CartContext";
 
 
-// ACÁ SE MUESTRA EL DETALLE DEL PRODUCTO
 const ItemDetail = ({detail}) => {
   const {title, categories, price, image, stock, description, id} = detail;
   const {addProductToCart} = useContext(CartContext);
-  // ver si se puede hacer ESTO de crear OTRA función
   const [showButton, setShowButton] = useState(false);
   const onAdd = (count) => {
     addProductToCart({
@@ -24,8 +22,8 @@ const ItemDetail = ({detail}) => {
     });
   }
   return (
-    <div className="grid grid-cols-4 h-96 gap-2 text-center border-4 border-red-700 rounded-3xl">
-      <img src={image} alt={title} className="mx-0 my-auto h-96 pb-2 w-full col-span-3 rounded-3xl shadow-md" />
+    <div className="bg-yellow-200 grid grid-cols-4 h-96 gap-2 justify-items-center border-4 border-red-700 rounded-3xl">
+      <img src={image} alt={title} className="mx-0 my-auto pb-2 col-span-3 rounded-3xl h-[350px] w-[600px]" />
       <div className="mx-0 my-auto mr-1">
         <h1 className="text-3xl text-emerald-900 font-bold underline decoration-wavy decoration-2 hover:decoration-dashed mb-2">Empanada de {title}</h1>
         <p className="italic text-left text-lg">• Pertenece al grupo de las <b>{categories}</b>. {description}</p>
@@ -33,7 +31,7 @@ const ItemDetail = ({detail}) => {
         <p className="text-left">• <b>Stock:</b> Aprovechá que tenemos {stock} empanadas de {title} a disposición right now...!!!</p>
         {!showButton ?
           <ItemCount 
-          onAdd={onAdd} // ver si se puede hacer ESTO de crear OTRA función
+          onAdd={onAdd}
           stock={stock} 
           setShowButton={setShowButton}
         />

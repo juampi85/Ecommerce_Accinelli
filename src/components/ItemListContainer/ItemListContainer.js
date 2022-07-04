@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
 
 import ItemList from '../ItemList/ItemList';
-// import productsMock from '../../utils/productsMock';
 import Loader from '../Loader.js/Loader';
 
 // Firestore
@@ -15,26 +14,19 @@ const ItemListContainer =() => {
   const {category} = useParams()
   const [loading, setLoading] = useState()
 
-  // const getProducts = () => {
-  //   return new Promise((resolve, reject) => {
-  //     setTimeout(() => {
-  //       resolve(productsMock)
-  //     }, 2000)
-  //   })
-  // }
 
   useEffect(() => {
-    setLoading(true) //--> acá LLAMARÍAMOS al loader para el efecto visual de "cargando"
+    setLoading(true)
     getProducts()
     
     .then((res) => {
-      setProducts( category ? res.filter( product => product.categories === category ) : res) //category viene de useParams y categories viene del Mock
+      setProducts( category ? res.filter( product => product.categories === category ) : res)
     })
     .catch((err) => {})
-    .finally(() => { // se ejecuta SIEMPRE (independientemente de que se carguen los productos o fallen)
+    .finally(() => {
       setLoading(false)
     })
-  }, [category]) // --> esto nos permite que se haga la llamada ÚNICAMENTE cuando se crea el componente (en el ciclo de MONTAJE)
+  }, [category])
 
   const getProducts = async () => {
     const productSnapshot = await getDocs(collection(db, "products"));
@@ -46,15 +38,15 @@ const ItemListContainer =() => {
     return productList;
   };
 
-
   return (
     <>
       {loading ? (
         <Loader />
         ) : (
-          <div>
-            <h1 className='text-4xl text-center font-extrabold my-2 italic bg-clip-text text-transparent 
-            bg-gradient-to-r from-blue-600 to-yellow-500'>NUESTRAS EMPANADAS</h1>
+          <div className='bg-yellow-200'>
+            <h1 className='text-transparent bg-clip-text w-4/5 text-5xl italic pt-4 font-extrabold mb-4 mx-auto text-center leading-normal bg-gradient-to-r from-indigo-500 via-orange-500 to-green-500'>
+              Nuestras empanadas...!!
+            </h1>
             <ItemList products={products}/>
           </div>
         )

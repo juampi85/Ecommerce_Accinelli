@@ -16,10 +16,10 @@ const Contacto = () => {
   }
 
   useEffect(() => {
-    setLoading(true) //--> acá LLAMARÍAMOS al loader para el efecto visual de "cargando"
+    setLoading(true)
     contact()
     .then((res) => {})    
-    .finally(() => { // se ejecuta SIEMPRE (independientemente de que se carguen los productos o fallen)
+    .finally(() => {
       setLoading(false)
     })
   }, [])
@@ -30,7 +30,6 @@ const Contacto = () => {
         <Loader />
         ) : (
           <ContactForm />
-          // <div className='text-4xl italic mt-5 text-blue-600 font-bold text-center'>PÁGINA DE CONTACTO</div>
         )
       }
     </>

@@ -5,14 +5,11 @@ const CartContext = createContext();
 const CartProvider = ({ children }) => {
   const [cartListItems, setCartListItems] = useState([]);
 
-  // const [totalPrice, setTotalPrice] = useState(0);
-
   const addProductToCart = (product) => {
 
     if (!isInCart(product.id)) {
       return setCartListItems((cartListItems) => [...cartListItems, product]);
     }
-
   };
 
   const reduceCart = (id) => {
@@ -36,7 +33,7 @@ const CartProvider = ({ children }) => {
   }
 
 
-  const data = { // primero ubicamos las variables/estados y luego sí las funciones
+  const data = {
     cartListItems,
     totalPrice,
     addProductToCart,

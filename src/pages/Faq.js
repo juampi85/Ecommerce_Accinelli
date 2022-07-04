@@ -14,10 +14,10 @@ const Faq = () => {
   }
 
   useEffect(() => {
-    setLoading(true) //--> acá LLAMARÍAMOS al loader para el efecto visual de "cargando"
+    setLoading(true)
     faq()
     .then((res) => {})    
-    .finally(() => { // se ejecuta SIEMPRE (independientemente de que se carguen los productos o fallen)
+    .finally(() => {
       setLoading(false)
     })
   }, [])
@@ -27,7 +27,6 @@ const Faq = () => {
       {loading ? (
         <Loader />
         ) : (
-          // <div className='text-4xl italic mt-5 text-blue-600 font-bold text-center'>PREGUNTAS FRECUENTES</div>
           <div>
             <section class="text-gray-700">
               <div class="container px-5 py-2 mx-auto">
@@ -46,9 +45,7 @@ const Faq = () => {
                         Cuándo comenzó la empresa en Posadas?
                       </summary>
                       <span>
-                        Laboris qui labore cillum culpa in sunt quis sint veniam.
-                        Dolore ex aute deserunt esse ipsum elit aliqua. Aute quis
-                        minim velit nostrud pariatur culpa magna in aute.
+                        La empresa comenzó en Octubre del 2017 (más precisamente el 14 de octubre). Fué con mucho esfuerzo que la iniciamos con mi socia.
                       </span>
                     </details>
                     <details class="mb-4">
@@ -57,9 +54,7 @@ const Faq = () => {
                       </summary>
 
                       <span>
-                        Laboris qui labore cillum culpa in sunt quis sint veniam.
-                        Dolore ex aute deserunt esse ipsum elit aliqua. Aute quis
-                        minim velit nostrud pariatur culpa magna in aute.
+                        El local está ubicado en la calle Padre Serrano al 2400 (en el Barrio Papini), a solo 7' del centro de Posadas.
                       </span>
                     </details>
                     <details class="mb-4">
@@ -68,9 +63,7 @@ const Faq = () => {
                       </summary>
 
                       <span>
-                        Laboris qui labore cillum culpa in sunt quis sint veniam.
-                        Dolore ex aute deserunt esse ipsum elit aliqua. Aute quis
-                        minim velit nostrud pariatur culpa magna in aute.
+                        La empresa la llevamos adelante en forma bien familiar; los responsables de la misma somos mi mujer, mis 2 hijas y yo.
                       </span>
                     </details>
                   </div>
@@ -81,9 +74,8 @@ const Faq = () => {
                       </summary>
 
                       <span class="px-4 py-2">
-                        Laboris qui labore cillum culpa in sunt quis sint veniam.
-                        Dolore ex aute deserunt esse ipsum elit aliqua. Aute quis
-                        minim velit nostrud pariatur culpa magna in aute.
+                        Todo lo clasificable como "frescos" son, en forma innegociable, comprados en el día (es por ello que nos tomamos como descanso el día domingo, ya que nuestros proveedores no abren dicho día).
+                        Ahora, lo que hace a las verduras, por ejemplo, dependiendo de la estación, las compramos (como máximo) el día anterior, manteniéndolas en contenedores especiales para conservar su frescura.
                       </span>
                     </details>
                     <details class="mb-4">
@@ -92,9 +84,7 @@ const Faq = () => {
                       </summary>
 
                       <span class="px-4 py-2">
-                        Laboris qui labore cillum culpa in sunt quis sint veniam.
-                        Dolore ex aute deserunt esse ipsum elit aliqua. Aute quis
-                        minim velit nostrud pariatur culpa magna in aute.
+                        Absolutamente todos los procesos los realizamos nosotros. Desde las masas de las empanadas, la cocción de las verduras, el cortado de las materias primas, el armado de las empanadas y su posterior cocción a horno de barro.
                       </span>
                     </details>
                     <details class="mb-4">
@@ -103,9 +93,8 @@ const Faq = () => {
                       </summary>
 
                       <span class="px-4 py-2">
-                        Laboris qui labore cillum culpa in sunt quis sint veniam.
-                        Dolore ex aute deserunt esse ipsum elit aliqua. Aute quis
-                        minim velit nostrud pariatur culpa magna in aute.
+                        Los puntos FUERTES, sin dudas, son la materia prima que utilizamos. Junto a la obsesión por la excelencia en el trabajo con el que venimos, cada día, a trabajar.
+                        Y, como algo a mejorar, si se quiere, podríamos decir que tenemos una capacidad limitada de producción (la cual, por suerte, ya la alcanzamos hace tiempo y nos mantenemos en el mismo volumen de ventas) ya que somos solo 4 personas las que gestionamos TODO el funcionamiento del local (apertura/cierre y limpieza del mismo, la producción/cocina de las empanadas, atención de teléfono/whatsapp/correos con los pedidos, etc), excepto el delivery el cual está tercerizado para poder nosotros concentrarnos en "hacer la magia" aquí adentro.
                       </span>
                     </details>
                   </div>

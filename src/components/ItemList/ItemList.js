@@ -4,7 +4,7 @@ const ItemList = ({products}) => {
 
   return(
     <>
-      <div className='grid grid-cols-4 border-8 border-red-700 gap-1 rounded-xl'>
+      <div className='grid grid-cols-4 gap-2 rounded-xl mx-1'>
         { products.map(({title, price, id, image, categories, stock, description}) => {          
           return (
             <div key={id}>
