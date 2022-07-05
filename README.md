@@ -31,7 +31,7 @@ A .gif file showing the navegability of the site has been added to the root dire
 
 # URL's que se utilizan en este proyecto
 
-- http://localhost:3000/: es la principal; la que da la "bienvenida" a la web. Es la que muestra el Home del proyecto.
+- http://localhost:3000/: es la principal; la "bienvenida" a la web. Es la que muestra el Home del proyecto (aquí vemos la totalidad de los productos).
 - http://localhost:3000/faq: sector donde se responden varias preguntas típicas del rubro gastronómico para adelantarnos a las inquietudes de nuestros clientes.
 - http://localhost:3000/contacto: es la URL utilizada para derivar en un formulario de contacto donde acortamos distancias con los clientes. Aquí nos dejan sus consultas, inquietudes y también es un ámbito propicio para efectuar los pedidos, por supuesto.
 - http://localhost:3000/productos/tradicionales: esta URL es la específica para las empanadas que denominamos "tradicionales"; son las más conocidas (pero no por ello menos sabrosas). Actualmente contamos con 5 distintas variedades en esta categoría.
@@ -42,7 +42,7 @@ A .gif file showing the navegability of the site has been added to the root dire
 
 # Aquí dejo el enlace del GIF para poder mostrar mejor el funcionamiento del proyecto
 
-https://drive.google.com/file/d/1xr6LObkHT15HI-tDfs4gXBjrbX0MnJA5/view?usp=sharing
+https://drive.google.com/file/d/11Ht9CkP1ZhaY5AKezsWZy2HK6lYVGEq6/view?usp=sharing
 
 
 # Getting Started with Create React App

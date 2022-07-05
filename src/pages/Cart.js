@@ -28,8 +28,10 @@ const Cart = () => {
     total: totalPrice(),
   });
 
-  const [success, setSuccess] = useState();
-  
+  /* Cambios en el Modal Order ID */
+  const [ orderId, setOrderId ] = useState('');
+  const [ showModalOrderId, setShowModalOrderId ] = useState(false);
+
   const handleChange = (e) => {
     setFormValue({ ...formValue, [e.target.name]: e.target.value });
   };
@@ -37,8 +39,9 @@ const Cart = () => {
   const saveData = async (newOrder) => {
     const orderFirebase = collection(db, "orders");
     const orderDoc = await addDoc(orderFirebase, newOrder);
-    console.log("orden generada", orderDoc.id);
-    setSuccess(orderDoc.id);
+
+    setOrderId(orderDoc.id);
+    setShowModalOrderId(true);
   };
   
   const handleSubmit = (e) => {
@@ -50,7 +53,6 @@ const Cart = () => {
 
   return (
     <div>
-      {console.log("order", order)}
       <h2 className="text-transparent bg-clip-text w-4/5 text-5xl italic pt-2 pb-4 font-extrabold my-0 mx-auto text-center leading-normal bg-gradient-to-r from-indigo-500 via-orange-500 to-green-500">
         Confirmar compra...
       </h2>
@@ -62,7 +64,7 @@ const Cart = () => {
           <h2 className="-mr-4 font-bold">Cantidad</h2>
           <h2 className="mr-24 font-bold">Quitar</h2>
         </div>
-        {cartListItems.length === 0 && ( // el "&&" actúa como condicional donde NO EXISTE un ELSE
+        {cartListItems.length === 0 && (
           <div className="mt-8 border-2 border-cyan-600 w-2/5 mx-auto rounded-lg text-center p-5 bg-green-300">
             <p className="text-lg font-bold">
               {" "}
@@ -151,13 +153,7 @@ const Cart = () => {
                     <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full  bg-yellow-200 outline-none focus:outline-none">
                       {/*body*/}
                       <div className="relative p-6 flex-auto">
-                        {/* ACÁ va el FORM*/}
-                        {success ? (
-                          <div>
-                            La orden se generó con éxito!! Número de orden:{" "}
-                            {success}
-                          </div>
-                        ) : (
+                        {/* ACÁ va el FORM*/}                      
                           <form onSubmit={handleSubmit} className="mt-5">
                             <input
                               required
@@ -194,7 +190,7 @@ const Cart = () => {
                               Enviar{" "}
                             </button>
                           </form>
-                        )}
+                        
                       </div>
                       {/*footer*/}
                       <div className="flex items-center justify-end p-6  rounded-b">
@@ -215,6 +211,23 @@ const Cart = () => {
           </div>
         </div>
         )}
+
+        { /* Cambios en el Modal Order ID */  }
+        
+        {showModalOrderId && (
+            <div className="my-20 border-2 w-1/4 mx-auto rounded-lg text-center p-5 bg-gray-300">
+              <p> La orden se generó con éxito!! </p>
+              <p> Número de orden: <b>{orderId}</b> </p>
+              <button
+                className="text-stone-100 font-semibold rounded-md border-2 w-20 h-10 mt-5 bg-blue-400"
+                type="button"
+                onClick={() => setShowModalOrderId(false)}
+                >
+                Cerrar
+              </button>
+            </div>
+          )
+        }
       </div>
     </div>
   );
