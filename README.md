@@ -2,7 +2,7 @@
 
 Este es el proyecto final que estoy realizando para culminar el curso de React JS en el instituto CoderHourse.
 
-El objetivo primordial del mismo es poner a prueba todo lo aprendido en cursos anteriores (como ser HTML, CSS, Jvascript) y sumarle el contenido que estamos aprendiendo en el actual curso ya mencionado.
+El objetivo primordial del mismo es poner a prueba todo lo aprendido en cursos anteriores (como ser HTML, CSS, Javascript) y sumarle el contenido que estamos aprendiendo en el actual curso ya mencionado.
 
 Es un proyecto sencillo, el cual imita a un negocio de mediana escala que se dedica a la venta de empanadas artesanales. 
 
@@ -25,8 +25,6 @@ Utilicé varias dependencias y librerías en mi proyecto (ya que hasta el final 
 
 También necesité utilizar el "react-router-dom" para toda la parte de ruteo y redireccionamiento entre las secciones.
 Para ello, tuve que instalarla ejecutando, en la consola, lo siguiente: "npm install react-router-dom".
-
-A .gif file showing the navegability of the site has been added to the root directory of this project /Juan-Paradeda-eCommerce.gif
 
 
 # URL's que se utilizan en este proyecto
